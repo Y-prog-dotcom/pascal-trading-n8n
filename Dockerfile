@@ -1,10 +1,7 @@
-# ============================================
-# Dockerfile — n8n Trading Bot pour Render
-# ============================================
-
 FROM n8nio/n8n:latest
 
-# Port Render
+USER root
+
 ENV N8N_PORT=10000
 ENV N8N_HOST=0.0.0.0
 ENV N8N_PROTOCOL=https
@@ -16,4 +13,4 @@ ENV N8N_BASIC_AUTH_PASSWORD=TradingPro2026!
 
 EXPOSE 10000
 
-CMD ["n8n", "start"]
+ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
