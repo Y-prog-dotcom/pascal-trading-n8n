@@ -1,0 +1,31 @@
+# ============================================
+# render.yaml — Configuration n8n sur Render
+# ============================================
+
+services:
+  - type: web
+    name: pascal-trading-n8n
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: "pascal"
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: "TradingPro2026!"
+      - key: N8N_HOST
+        value: "0.0.0.0"
+      - key: N8N_PORT
+        value: "10000"
+      - key: N8N_PROTOCOL
+        value: "https"
+      - key: WEBHOOK_URL
+        value: "https://pascal-trading-n8n.onrender.com"
+      - key: GENERIC_TIMEZONE
+        value: "Africa/Abidjan"
+      - key: N8N_DIAGNOSTICS_ENABLED
+        value: "false"
+      - key: N8N_VERSION_NOTIFICATIONS_ENABLED
+        value: "false"
